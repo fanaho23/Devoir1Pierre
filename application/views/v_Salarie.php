@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>Liste des secteurs</h1>
-        <select id="lstTypes">
+        <select id="lstSecteurs">
                 <?php 
                     foreach($lesSecteurs as $secteurs)
                         {
