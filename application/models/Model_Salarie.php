@@ -6,15 +6,15 @@ class Model_Salarie extends CI_Model
       $sql = $this->db->query("Select * from secteur");   
         return $sql->result(); 
     }
-    function GetAllRayons()
+    function GetAllRayonsBySecteur($codeSecteur)
     {
-        $sql = $this->db->query("Select * from rayon");   
+        $sql = $this->db->query("SELECT nomR, numR FROM rayon WHERE numSecteur =".$codeSecteur);   
         return $sql->result(); 
     }
-    function GetAllSalarie($codeR)
+   function GetAllSalarie($codeRayon)
     {
-        $sql = $this->db->query("SELECT prenomE FROM employe,travailler  WHERE employe.numE = travailler.codeE AND codeR =".$codeR);   
-        return $sql->result();
-        
-    }
+        $sql = $this->db->query("SELECT prenomE, date, temps FROM employe,travailler  WHERE employe.numE = travailler.codeE AND codeR =".$codeRayon);   
+       return $sql->result();
+      
+   }
 }
